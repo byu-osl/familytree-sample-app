@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block profile %}
+<div id="tags-list">
+  {% for tag in user.tagged[person.getID()] %}
+  <a class="label yellow" href="/tags/{{ tag }}">{{ tag }}</a>
+  {% endfor %}
+</div>
+{% endblock %}
+
+{% block buttons %}
+<div id="tag-modal" class="modal hide fade">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h3>Tags</h3>
+  </div>
+  <div class="modal-body">
+    <form id="tags-form">
+      <div id="tags-form-list">
+	{% for tag in user.tagged[person.getID()] %}
+	<span id="tag-{{ tag }}" class="label yellow"><span class="close" onclick="deleteTag('{{ tag }}')">&times;</span><span class="taglisting">{{ tag }}</span></span>
+	{% endfor %}
+      </div>
+      <input id="taglist" name="taglist" type="hidden" value="">
+      <ul>
+	{{ tags.tags }}
+	<p>{{ tags.tags.label }}</p>
+      </ul>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aia-hidden="true" onclick="cancelTags();">Cancel</button>
+    <button class="btn btn-primary" data-dismiss="modal" onclick="saveTags();">Save</button>
+  </div>
+</div>
+<div class="row-fluid">
+  <div id="tags-button" class="pull-left">
+    <a class="btn btn-success tag-button" href="#tag-modal" data-toggle="modal">Tag</a>
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<script src="/static/js/profile.js"></script>
+<script>
+  var person = {'api_id': '{{ person.getID() }}',
+                'given_name': '{{ person.getGivenName() }}',
+                'family_name': '{{ person.getFamilyName() }}',
+                'birth_place': '{{ person.getBirthPlace() }}',
+                'birth_year': '{{ person.getBirthYear() }}',
+  };
+</script>
+<div id="profile-area">
+  <div id="loader" class="row-fluid">
+    <div class="span12">
+      <p>Loading your ancestors from FamilySearch ...</p>
+      <img src="/static/img/spinner.gif" />
+    </div>
+  </div>
+</div>
+<div class="row-fluid">
+  <div class="span12">
+    <div id="area" class="profile">
+    </div>
+  </div>
+</div>
+{% endblock %}

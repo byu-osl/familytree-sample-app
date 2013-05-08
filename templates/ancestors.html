@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<script>
+  var startID = "{{ startID }}";
+  var generations = {{ generations }};
+  var person = {'api_id': '{{ person.getID() }}'};
+</script>
+<script src="/static/js/ancestors.js"></script>
+<div id="loader" class="row-fluid">
+  <div class="span12">
+    <div>
+      <p>Loading your ancestors from FamilySearch ...</p>
+      <img src="/static/img/spinner.gif" />
+      <p></p>
+      <p>(This may take 20 to 30 seconds if you have a large tree)</p>
+    </div>
+  </div>
+</div>
+<div id="area">
+</div>
+{% endblock %}

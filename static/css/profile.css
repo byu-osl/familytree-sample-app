@@ -1,0 +1,65 @@
+#profile-loader {
+    display: block;
+    margin: 50px auto;
+    text-align: center;
+}
+
+#profile {
+    padding-top: 10px;
+}
+
+#profile .ancestor-name {
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+a .ancestor-name {
+}
+
+
+#help-popup, #ordinance-popup {
+    text-align: center;
+}
+
+#help-description, #ordinance-help-text {
+    margin-bottom: .5em;
+}
+
+.section-title {
+    padding: 5px 10px;
+    margin-bottom: 5px;
+    margin-top: 10px;
+    color: white;
+    font-size: .9em;
+    font-weight: bold;
+    background-color: #08c;
+    background-color: #ccc;
+    border-radius: 8px;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+}
+
+.profile-label {
+    font-weight: bold;
+    font-size: 0.95em;
+}
+
+.tab-content {
+    background-color: white;
+    overflow: visible;
+}
+
+.profile .row-fluid {
+}
+
+.nav {
+    margin: 0;
+}
+
+.children {
+    margin-bottom: 5px;
+}
+
+#gender {
+    vertical-align: top;
+}

@@ -1,0 +1,165 @@
+body {
+    color: #5a5a5a;
+}
+
+.container {
+}
+
+#footer {
+    margin-top: 30px;
+    text-align: left;
+}
+
+.container {
+    width: 94%;
+    max-width: 1200px;
+    margin: 0px auto;
+}
+
+/* Navigation Bar */
+
+#nav {
+    margin-bottom: 0px;
+}
+
+.nav-welcome {
+    color: #999;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    padding: 15px 15px 10px 0px;
+    vertical-align: -20%;
+}
+
+.navbar {
+    margin-bottom: 10px;
+}
+
+.navbar-inner {
+    border-radius: 0px;
+    -webkit-border-radius: 0px;
+}
+
+.nav li {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+/* Front Page */
+
+#logo-small {
+    height: 20px;
+    margin-right: 5px;
+    margin-top: -5px;
+}
+
+/* Content */
+#content {
+
+}
+
+#loader {
+    margin-top: 30px;
+    text-align: center;
+}
+
+#area {
+    margin-top: 30px;
+    display: none;
+}
+
+/* Profile */
+
+img {
+    vertical-align: middle;
+}
+
+.name {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.ancestor-name {
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+.section-title {
+    padding: 5px 10px;
+    margin-bottom: 5px;
+    margin-top: 10px;
+    color: white;
+    font-size: .9em;
+    font-weight: bold;
+    background-color: #08c;
+    background-color: #ccc;
+    border-radius: 8px;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+}
+
+.profile-label {
+    font-weight: bold;
+    font-size: 0.95em;
+}
+
+.tab-content {
+    background-color: white;
+    overflow: visible;
+}
+
+.profile .row-fluid {
+}
+
+.nav {
+    margin: 0;
+}
+
+.children {
+    margin-bottom: 5px;
+}
+
+#gender {
+    vertical-align: top;
+}
+
+/* Miscellaneous */
+
+a {
+    text-decoration: underline;
+}
+
+.btn {
+    text-decoration: none;
+}
+
+a:hover {
+    cursor: pointer;
+}
+
+a:focus {
+    outline: none;
+}
+
+.btn {
+}
+
+.btn:focus {
+    outline: none;
+}
+
+.btn-primary {
+    background-image: none;
+}
+
+.clear {
+    clear: both;
+}
+
+.bigtext {
+    font-size: 1.2em;
+}
+
+.brand {
+    color: #666;
+    font-size: 1.1em;
+    font-weight: bold;
+}

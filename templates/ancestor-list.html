@@ -1,0 +1,44 @@
+{% macro do_event(event,type) -%}
+<span class="label">{{type}}:</span>
+{% if event %}
+{% if event['date'] %}
+{{ event['date'] }}
+{% endif %}
+{% if event['place'] %}
+{{ event['place'] }}
+{% endif %}
+{% endif %}
+{%- endmacro %}
+
+{% macro do_person(person,generation) -%}
+<div class="row-fluid">
+  <div class="span12">
+    <div id="person">
+      <span class="label">{{ generation }}</span>
+      {% if person.getGender() == "Male" %}
+      <img id="gender" class="gender" src="/static/img/man.png">
+      {% else %}
+      <img id="gender" class="gender" src="/static/img/woman.png">
+      {% endif %}
+      <a href="/profile/{{ person.getID() }}"><span class="name">{{ person.getFullName() }}</span></a>
+      <a href="https://familysearch.org/tree/#view=ancestor&person={{ person.api_id }}" title="View in FamilySearch" target="_blank"><img id="fs-icon" src="/static/img/fs-icon-logo.png"></a>
+      {{ do_event(person.getBirth(),'Birth') }}
+      {{ do_event(person.getDeath(),'Death') }}
+    </div>
+  </div>
+</div>
+<div class="row-fluid">
+  <div class="span1">
+  </div>
+  <div class="span11">
+    {% if people[person.getFatherID()] %}
+    {{ do_person(people[person.getFatherID()],generation+1) }}
+    {% endif %}
+    {% if people[person.getMotherID()] %}
+    {{ do_person(people[person.getMotherID()],generation+1) }}
+    {% endif %}
+  </div>
+</div>
+{%- endmacro %}
+
+{{ do_person(person,1) }}

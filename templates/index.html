@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container bigtext">
+  <div class="hero-unit logo-wrapper">
+    <img id="logo" src="/static/img/logo.png">
+    <h1>families</h1>
+    <p class="tagline clear">
+      <i>A sample FamilyTree app,
+	using <a href="http://flask.pocoo.org/">Flask</a>,
+	<a href="http://www.mongodb.org/">MongoDB</a>,
+	<a href="http://twitter.github.com/bootstrap/">Bootstrap</a>,
+	and <a href="http://jquery.com/">jQuery</a>.</i>
+    </p>
+    {% if not login %}
+    <a id="login-button" class="btn btn-primary fancybox fancybox.iframe" href="/auth/login">Get Started</a>
+    {% endif %}
+  </div>
+</div>
+
+{% endblock %}

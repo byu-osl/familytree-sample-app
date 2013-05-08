@@ -1,0 +1,17 @@
+Instructions for setting up a development environment
+
+1) Install MongoDB
+
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv 7F0CEB10
+
+create /etc/apt/sources.list.d/10gen.list
+deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen
+
+sudo apt-get update
+sudo apt-get install mongodb-10gen
+
+2) Setup Flask:
+
+sudo pip install flask
+sudo pip install wtforms
+sudo pip install pymongo
