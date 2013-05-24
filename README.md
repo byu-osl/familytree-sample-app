@@ -43,6 +43,30 @@ that includes the following:
 Replace the appropriate lines (ServerName, process name, directories, etc) with the actual values for your
 server.
 
+Screenshots
+===========
+
+The home page:
+
+![](screenshots/home.jpg)
+
+Click the **Getting Started** or the **Login** button to login via
+FamilySearch. Once you login, you should see your ancsetry page:
+
+![](screenshots/ancestry.jpg)
+
+By clicking on any name you can bring up the profile page for that
+person:
+
+![](screenshots/profile.jpg)
+
+All data is cached in a Mongo database. Per FamilySearch policy,
+living people are stored in a separate database and NOT shared among
+other users. Deceased people are stored in their own database and may
+be shared among other users.  The **Refresh** button will refresh the
+ancestry or profile views, by requesting the data again from
+FamilySearch and replacing the cache in MongoDB.
+
 Copyright
 =========
 Copyright 2013, Daniel Zappala
