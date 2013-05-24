@@ -1,7 +1,10 @@
 familytree-sample-app
 =====================
 
-A sample FamilyTree app, using Flask, MongoDB, Bootstrap, and jQuery
+A sample FamilyTree application that uses Flask, MongoDB, Bootstrap, and jQuery. The
+application displays a text-based pedigree, with names that can be clicked to provide a profile view.
+To use this application, you need to have an access key for the FamilyTree API, details available from
+FamilySearch at http://familysearch.org/developers.
 
 Copyright
 =========
