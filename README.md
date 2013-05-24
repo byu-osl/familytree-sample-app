@@ -48,17 +48,17 @@ Screenshots
 
 The home page:
 
-![](screenshots/home.jpg)
+![](screenshots/home.png)
 
 Click the **Getting Started** or the **Login** button to login via
 FamilySearch. Once you login, you should see your ancsetry page:
 
-![](screenshots/ancestry.jpg)
+![](screenshots/ancestry.png)
 
 By clicking on any name you can bring up the profile page for that
 person:
 
-![](screenshots/profile.jpg)
+![](screenshots/profile.png)
 
 All data is cached in a Mongo database. Per FamilySearch policy,
 living people are stored in a separate database and NOT shared among
