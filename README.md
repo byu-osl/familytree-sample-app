@@ -6,6 +6,9 @@ application displays a text-based pedigree, with names that can be clicked to pr
 To use this application, you need to have an access key for the FamilyTree API, details available from
 FamilySearch at http://familysearch.org/developers.
 
+See the screenshots below to see what the application looks like. The code in this application is the
+core of http://leaf.byu.edu.
+
 Configuration
 =============
 
