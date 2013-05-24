@@ -1,5 +1,5 @@
-familytree-sample-app
-=====================
+FamilyTree Sample Application
+=============================
 
 A sample FamilyTree application that uses Flask, MongoDB, Bootstrap, and jQuery. The
 application displays a text-based pedigree, with names that can be clicked to provide a profile view.
