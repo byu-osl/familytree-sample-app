@@ -6,6 +6,43 @@ application displays a text-based pedigree, with names that can be clicked to pr
 To use this application, you need to have an access key for the FamilyTree API, details available from
 FamilySearch at http://familysearch.org/developers.
 
+Configuration
+=============
+
+Copy the doc/config-sample.py file to the top directory of the sample application. Edit this file
+to enter your sandbox and production keys, obtained from FamilySearch. Set the sandbox variable to True
+to use the sandbox key and False to use the production key.
+
+If you want to try the application out on a production server, set the ADMINS variable to include
+your email address, then also put the email address and password of a Gmail account into the emailAddress
+and emailPassword variable. This will email you reports if a bug occurs when the application runs
+on a production server.
+
+To run on a production server, copy the doc/sample.wsgi file to the top directory of the sample application.
+Edit this file to enter the path to where your code is stored. Then create a virtual host for Apache
+that includes the following:
+
+    <Virtualhost *:80>
+        ServerName app.com
+
+        WSGIDaemonProcess app user=www-data group=www-data home=/home/app/ processes=5 maximum-requests=1000
+        WSGIScriptAlias / /home/app/familytree-sample-app/app.wsgi
+
+        <Directory /home/app/familytree-sample-app>
+                WSGIProcessGroup beta
+                WSGIApplicationGroup %{GLOBAL}
+                Order allow,deny
+                Allow from all
+        </Directory>            
+
+        ErrorLog /var/log/apache2/app-error.log
+        CustomLog /var/log/apache2/app-access.log combined
+
+    </VirtualHost>
+
+Replace the appropriate lines (ServerName, process name, directories, etc) with the actual values for your
+server.
+
 Copyright
 =========
 Copyright 2013, Daniel Zappala
