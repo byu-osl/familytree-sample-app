@@ -4,7 +4,7 @@ import json
 import urllib
 
 from models.user import User
-from config import key
+from config import key, sandbox
 
 ### Authentication via FamilyTree OAuth 2 ### 
 
@@ -24,8 +24,10 @@ def login():
     session.clear()
 
     # Get Discovery resource
-    # uri = 'https://sandbox.familysearch.org/.well-known/app-meta.json'
-    uri = 'https://familysearch.org/.well-known/app-meta.json'
+    if sandbox:
+        uri = 'https://sandbox.familysearch.org/.well-known/app-meta.json'
+    else:
+        uri = 'https://familysearch.org/.well-known/app-meta.json'
     try:
         result = urllib.urlopen(uri).read()
         response = json.loads(result)
@@ -88,9 +90,11 @@ def oauth():
 @auth.route('/logout')
 def logout(): 
     if not authenticated():
-        return redirect('/') 
-    # uri = 'https://sandbox.familysearch.org/.well-known/app-meta.json'
-    uri = 'https://familysearch.org/.well-known/app-meta.json'
+        return redirect('/')
+    if sandbox:
+        uri = 'https://sandbox.familysearch.org/.well-known/app-meta.json'
+    else:
+        uri = 'https://familysearch.org/.well-known/app-meta.json'
     try:
         result = urllib.urlopen(uri).read()
         response = json.loads(result)

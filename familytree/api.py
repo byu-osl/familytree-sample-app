@@ -9,6 +9,7 @@ import urllib
 import urllib2
 
 # local imports
+from config import sandbox
 import parser
 from views.exceptions import NotLoggedInException, NotRespondingException
 
@@ -134,8 +135,10 @@ class API:
 
     def get_individual(self, api_id):
         """Request a person read for an ID, then return the person."""
-        # uri = "https://sandbox.familysearch.org/platform/tree/persons-with-relationships?person=%s" % (api_id)
-        uri = "https://familysearch.org/platform/tree/persons-with-relationships?person=%s" % (api_id)
+        if sandbox:
+            uri = "https://sandbox.familysearch.org/platform/tree/persons-with-relationships?person=%s" % (api_id)
+        else:
+            uri = "https://familysearch.org/platform/tree/persons-with-relationships?person=%s" % (api_id)
         d = Downloader(self.access_token,[uri])
         results = d.run()
         response = json.loads(results[0])
@@ -146,8 +149,10 @@ class API:
         responses."""
         uris = []
         for api_id in api_ids:
-            # uri = "https://sandbox.familysearch.org/platform/tree/persons-with-relationships?person=%s" % (api_id)
-            uri = "https://familysearch.org/platform/tree/persons-with-relationships?person=%s" % (api_id)
+            if sandbox:
+                uri = "https://sandbox.familysearch.org/platform/tree/persons-with-relationships?person=%s" % (api_id)
+            else:
+                uri = "https://familysearch.org/platform/tree/persons-with-relationships?person=%s" % (api_id)
             uris.append(uri)
         d = Downloader(self.access_token,uris)
         results = d.run()
@@ -160,8 +165,10 @@ class API:
         """Request a pedigree read, then return a list of the person
         IDs associated with the pedigree."""
 
-        # uri = 'https://sandbox.familysearch.org/platform/tree/ancestry?person=%s' % (api_id)
-        uri = 'https://familysearch.org/platform/tree/ancestry?person=%s' % (api_id)
+        if sandbox:
+            uri = 'https://sandbox.familysearch.org/platform/tree/ancestry?person=%s' % (api_id)
+        else:
+            uri = 'https://familysearch.org/platform/tree/ancestry?person=%s' % (api_id)
         d = Downloader(self.access_token,[uri])
         results = d.run()
         response = json.loads(results[0])

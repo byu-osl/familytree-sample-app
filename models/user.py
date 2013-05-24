@@ -1,7 +1,7 @@
 from flask import session
 
 from models.person import *
-from config import db
+from config import db, sandbox
 from base import Base
 from familytree.api import API
 
@@ -57,11 +57,18 @@ class User(Base):
         api = API(session['access_token'])
         # get current user
         api_data = api.get_user()
-        userID = api_data['personId']
+        if sandbox:
+            user_person = api.get_user_person()
+            userID = user_person['id']
+        else:
+            userID = api_data['personId']
         user = User.get(userID)
         # store user information
         user.api_data = api_data
-        user.ldsPermission()
+        if sandbox:
+            user.lds = True
+        else:
+            user.ldsPermission()
         # This is what we'll use when it is implemented
         # user.ldsMember()
         user.save()
