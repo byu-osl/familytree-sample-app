@@ -15,7 +15,7 @@ to use the sandbox key and False to use the production key.
 
 If you want to try the application out on a production server, set the ADMINS variable to include
 your email address, then also put the email address and password of a Gmail account into the emailAddress
-and emailPassword variable. This will email you reports if a bug occurs when the application runs
+and emailPassword variables. This will email you reports if a bug occurs when the application runs
 on a production server.
 
 To run on a production server, copy the doc/sample.wsgi file to the top directory of the sample application.
